@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+  <h2>This is Data page</h2>
+
+  <a href="{% url 'register_page' %}" class="btn btn-success">
+    <i class="fa-regular fa-square-plus"></i> Create
+  </a>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">First_name</th>
+      <th scope="col">Last_name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Buttons</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for data in data %}
+    <tr>
+      <th scope="row">{{data.id}}</th>
+      <td>{{data.username}}</td>
+      <td>{{data.first_name}}</td>
+      <td>{{data.last_name}}</td>
+      <td>{{data.email}}</td>
+      <td>
+        <a href="{% url 'read_data' data.id %}" class="btn btn-info"><i class="fa-solid fa-book-open-reader"></i></a>&nbsp;
+        <a href="{% url 'user_update' data.id %}" class="btn btn-warning"><i class="fa-solid fa-pen"></i></a>&nbsp;
+        <a href="{% url 'delete_data' data.id %}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+      </td>
+
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+
+{% endblock content %}
