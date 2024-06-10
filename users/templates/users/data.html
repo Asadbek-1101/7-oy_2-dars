@@ -5,13 +5,13 @@
 
 <div class="container mt-5">
   <h2>This is Data page</h2>
-  <h1>Hello world</h1>
-
+<h1>Hello</h1>
   <a href="{% url 'register_page' %}" class="btn btn-success">
     <i class="fa-regular fa-square-plus"></i> Create
   </a>
 
-  <table class="table"><thead>
+  <table class="table">
+  <thead>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Username</th>
@@ -34,10 +34,13 @@
         <a href="{% url 'user_update' data.id %}" class="btn btn-warning"><i class="fa-solid fa-pen"></i></a>&nbsp;
         <a href="{% url 'delete_data' data.id %}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
       </td>
+
+
     </tr>
   {% endfor %}
   </tbody>
 </table>
+</div>
 
 
 {% endblock content %}
