@@ -62,16 +62,6 @@ def read_data(request, id):
     return render(request, 'users/read_data.html', {"data":data})
 
 
-from django.shortcuts import render, redirect
-from django.views import View
-from django.contrib.auth.models import User
-from .forms import RegisterForm
-
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views import View
-from django.contrib.auth.models import User
-from .forms import RegisterForm
-
 class UpdateView(View):
     def get(self, request, user_id):
         user = get_object_or_404(User, id=user_id)
@@ -104,6 +94,9 @@ def delete_data(request, id):
     data = get_object_or_404(User, id=id)
     data.delete()
     return redirect("data")
+
+
+
 
 
 
